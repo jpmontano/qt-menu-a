@@ -18,7 +18,7 @@ private:
     // main menu item #1
     void openActSlot();
     void printActSlot();
-    void exitActSlot();
+    void quitActSlot();
     // main menu item #2
     void aboutActSlot();
 
@@ -29,7 +29,7 @@ private:
     // main menu item #1
     QAction *openAct;
     QAction *printAct;
-    QAction *exitAct;
+    QAction *quitAct;
     // main menu item #2
     QAction *aboutAct;
 
