@@ -15,14 +15,17 @@ void MainWindow::createActions() {
 
     //
     openAct = new QAction( tr("Open"), this );
+    openAct->setShortcuts( QKeySequence::Open );
     connect( openAct, &QAction::triggered,
              this, &MainWindow::openActSlot );
     printAct = new QAction( tr("Print"), this );
+    printAct->setShortcuts( QKeySequence::Print );
     connect( printAct, &QAction::triggered,
              this, &MainWindow::printActSlot );
-    exitAct = new QAction( tr("Exit"), this );
-    connect( exitAct, &QAction::triggered,
-             this, &MainWindow::exitActSlot );
+    quitAct = new QAction( tr("Quit"), this );
+    quitAct->setShortcuts( QKeySequence::Quit );
+    connect( quitAct, &QAction::triggered,
+             this, &MainWindow::quitActSlot );
 
     //
     aboutAct = new QAction( tr("About"), this );
@@ -43,7 +46,7 @@ void MainWindow::createMenus() {
     fileMenu->addAction( openAct );
     fileMenu->addAction( printAct );
     fileMenu->addSeparator();
-    fileMenu->addAction( exitAct );
+    fileMenu->addAction( quitAct );
 
     // main menu item #2
     helpMenu = menuBar->addMenu( tr("&Help") );
@@ -63,7 +66,7 @@ void MainWindow::printActSlot() {
 }
 
 
-void MainWindow::exitActSlot() {
+void MainWindow::quitActSlot() {
     QMessageBox::StandardButton wantsToQuit;
     wantsToQuit = QMessageBox::question( this, tr("Confirmation"),
                                          tr("Do you really want to quit?"),
